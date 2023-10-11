@@ -1,4 +1,4 @@
-// Fs - file system module
+// fs - file system module
 
 const { readFileSync, writeFileSync } = require("node:fs");
 console.log("start");
