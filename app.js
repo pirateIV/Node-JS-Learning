@@ -13,48 +13,38 @@
 // npm init (step by step, press enter to skip)
 // npm init -y (everything default)
 
-// const _ = require("lodash");
+// const http = require('node:http')
+import http from 'node:http'
 
-// const items = [1, [2, [3, [4]]]];
-// const newItems = _.flattenDeep(items)
-// console.log(newItems)
+http.createServer((req, res)=> {
+  res.writeHead(200, { 'Content-Type': 'application/json'  });
+  res.end(JSON.stringify({
+    data: 'Hello World',
+  }))
+})
 
-// const os = require('node:os')
+// import http from 'node:http';
 
-// console.log(os.homedir()) // - C:\Users\Benjamin
-// console.log(os.getPriority())
-// console.log(os.uptime())
-// console.log(os.version())
-// console.log((os.cpus()[0].model))
-// console.log((os.cpus()[0].speed))
-// console.log((os.cpus()[0].times))
+// Create a local server to receive data from
+// const server = http.createServer((req, res) => {
+//   res.writeHead(200, { 'Content-Type': 'application/json' });
+//   res.end(JSON.stringify({
+//     data: 'Hello World!',
+//   }));
+// });
 
-// console.log(os.platform()) // -  win32
-// console.log(os.totalmem())
-// console.log(os.type())
-// console.log(os.release())
-// console.log(os.hostname())
-// // returns the system directory for temporary files
-// console.log(os.tmpdir())
-// console.log(os.machine())
-// console.log(os.userInfo())
-// // to get the username access it through the userInfo function
-// console.log(os.userInfo().username)
+// server.listen(8000);
+// import http from 'node:http';
 
-const { readFileSync, writeFileSync } = require("node:fs");
-console.log(require('node:fs'))
-// const readLine = require('rea')
+// // Create a local server to receive data from
+// const server = http.createServer();
 
-// const fileOne = readFileSync('./c')
+// // Listen to the request event
+// server.on('request', (request, res) => {
+//   res.writeHead(200, { 'Content-Type': 'application/json' });
+//   res.end(JSON.stringify({
+//     data: 'Hello World!',
+//   }));
+// });
 
-// creating and writing file with writeFileSync is only recommended for debugging p
-// purposes just like every other synchronous function in node
-writeFileSync(
-  "./create-file.txt",
-  `This file was created at ${new Date().toLocaleDateString("en-US", {
-    day: "numeric",
-    year: "numeric",
-    month: "long",
-    timeZoneName: 'long'
-  })}`, {flag: 'a'}
-);
+// server.listen(8000);
